@@ -6,7 +6,7 @@ Oct 30, 2026 · @BaoPham
 
 Phòng 2 – "Bàn cờ Đông Dương" đưa Quang từ cái tên Henri Navarre (đáp án Phòng 1) đến quyết định mở Chiến dịch Điện Biên Phủ ngày 6/12/1953. Người chơi đọc trộm Kế hoạch Nava, bắt điện chủ trương Đông – Xuân, rồi tự tay bẻ mở "nắm đấm thép" của Nava trên sa bàn, kéo khối quân cơ động của Pháp tản ra 5 nơi. Mảnh ghép thứ hai nằm trong hòm sắt khóa bằng ngày 6/12.
 
-Kế hoạch dựng màn chơi cho Thái: Plan màn chơi (Thái)
+Kế hoạch dựng màn chơi cho Thái: [Plan màn chơi (Thái)](gd2-room-2-level-plan.md)
 
 | Mục | Nội dung |
 | --- | --- |
@@ -130,7 +130,7 @@ Bốn câu đố, bốn cơ chế chưa có ở phòng nào, và mỗi cơ chế
 | 3 | Thượng Lào – Nậm Hu (cuối 1/1954) | Luông Pha-bang | CƠ ĐỘNG |
 | 4 | Bắc Tây Nguyên – Kon Tum (đầu 2/1954) | Plây-ku | LINH HOẠT |
 
-&#91;embedded content: sa bàn Bước 3 · 4 hướng tiến công, 5 nơi tập trung quân\]
+![Sa bàn Bước 3 · 4 hướng tiến công, 5 nơi tập trung quân](images/gd2-step3-sa-ban.svg)
 
 Bố trí gợi ý cho người vẽ sa bàn: vị trí chỉ theo hướng tương đối trên bản đồ Đông Dương, không theo tỷ lệ.
 
