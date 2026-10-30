@@ -1,4 +1,4 @@
-// Minh, his dialogue and the room layouts are fictional learning devices.
+// Quang, his dialogue and the room layouts are fictional learning devices.
 export const chapterOrder = ['museum', 'him-lam', 'navarre-plan', 'command-post', 'peace', 'ending'];
 export const roomOrder = ['him-lam', 'navarre-plan', 'command-post', 'peace'];
 
@@ -23,7 +23,7 @@ export const sources = {
 const chapter = (id, title, kicker, goal, clueIds, puzzleIds, nextChapterId, outroBeatId = null) => ({ id, title, kicker, goal, clueIds, puzzleIds, nextChapterId, introBeatId: `${id}-intro`, outroBeatId });
 const NAVA_CLUE_IDS = ['nava-planner', 'nava-radio-note', 'nava-diary', 'nava-newspaper', 'nava-allied-telegram', 'nava-calendar', 'nava-dbp-dossier'];
 export const chapters = {
-  museum: chapter('museum', 'Ánh sáng từ mô hình', 'Bảo tàng · Hiện tại', 'Theo Minh khám phá mô hình hầm Đờ Cát và cánh cửa ký ức.', [], [], 'him-lam'),
+  museum: chapter('museum', 'Ánh sáng từ mô hình', 'Bảo tàng · Hiện tại', 'Theo Quang khám phá mô hình hầm Đờ Cát và cánh cửa ký ức.', [], [], 'him-lam'),
   'him-lam': chapter('him-lam', 'Dấu mở đầu', 'Chương I · Ký ức Him Lam', 'Ghi bốn manh mối và ghép trình tự trận mở màn.', ['him-lam-position', 'him-lam-artillery', 'him-lam-infantry', 'him-lam-victory'], ['him-lam'], 'navarre-plan'),
   'navarre-plan': chapter('navarre-plan', 'Bàn cờ Đông Dương', 'Chương II · Kế hoạch Nava và Đông – Xuân', 'Cân lại kế hoạch của Nava, bắt hai giọng điện, mở nắm đấm thép và chọn nước cờ quyết định.', NAVA_CLUE_IDS, ['nava-balance', 'nava-radio', 'nava-fist', 'nava-fold'], 'command-post', 'navarre-plan-outro'),
   'command-post': chapter('command-post', 'Bức điện cuối hành lang', 'Chương III · Sở chỉ huy', 'Ghép bản tin được biên soạn và chọn ngày chiến thắng.', ['command-report', 'command-advance', 'command-capture'], ['command-post'], 'peace'),
@@ -31,18 +31,18 @@ export const chapters = {
   ending: chapter('ending', 'Trở lại bên mô hình', 'Bảo tàng · Trở về hiện tại', 'Đọc lời kết và giữ lại một điều muốn tìm hiểu thêm.', [], [], null),
 };
 
-// A line is Minh's narration unless it names another speaker, e.g. system('…').
+// A line is Quang's narration unless it names another speaker, e.g. system('…').
 const system = text => ({ speakerId: 'system', text });
 const beat = (id, chapterId, texts, requiredDiscoveredClueIds = [], sourceIds = [], { requiresRoomCompletion = false } = {}) => ({
   id, chapterId, requiredDiscoveredClueIds, requiresRoomCompletion,
   lines: texts.map(entry => {
-    const { speakerId = 'minh', text } = typeof entry === 'string' ? { text: entry } : entry;
+    const { speakerId = 'quang', text } = typeof entry === 'string' ? { text: entry } : entry;
     return { speakerId, portraitId: speakerId, text, sourceIds, fictional: true };
   }),
 });
 export const beats = {
   'museum-intro': beat('museum-intro', 'museum', [
-    'Mình là Minh. Hôm nay, ở Bảo tàng Chiến thắng Điện Biên Phủ, mình dừng trước mô hình hầm Đờ Cát. Khi tay mình chạm vào mô hình, một luồng sáng lạ bất chợt phủ kín mọi thứ.',
+    'Mình là Quang. Hôm nay, ở Bảo tàng Chiến thắng Điện Biên Phủ, mình dừng trước mô hình hầm Đờ Cát. Khi tay mình chạm vào mô hình, một luồng sáng lạ bất chợt phủ kín mọi thứ.',
     'Ánh sáng tan đi. Mình đang đứng trong một căn hầm, trước tờ lịch ngày 7/5/1954. Những trang tư liệu từ tháng 3 và tháng 4 nằm quanh mình, như đang chờ được đọc lại.',
     'Một giọng nói vang lên, nhắc mình giải những cánh cửa lịch sử để tìm đường trở về. Mình hít sâu, mở sổ tay và bước đến dấu vết đầu tiên. Có lẽ mình phải hiểu điều đã xảy ra trước khi tìm được lối ra.',
   ]),

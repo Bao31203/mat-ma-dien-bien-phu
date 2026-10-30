@@ -163,7 +163,7 @@ test('every content reference resolves and every clue has meaningful narrated di
     assert.ok(beats[item.beatId].lines.length >= 2);
   }
   for (const item of Object.values(beats)) for (const line of item.lines) {
-    assert.ok(['minh', 'system'].includes(line.speakerId));
+    assert.ok(['quang', 'system'].includes(line.speakerId));
     assert.ok(line.text.length > 40);
     for (const sourceId of line.sourceIds) assert.ok(sources[sourceId]);
   }
