@@ -2,8 +2,8 @@ import { chapterOrder, chapters, clues, beats, sources } from '../content/story-
 import { element, button, paragraph, actions } from './dom-elements.js';
 
 export class ArchiveView {
-  constructor({ dialog, getState, onIntent, showStory, showPuzzle }) {
-    Object.assign(this, { dialog, getState, onIntent, showStory, showPuzzle });
+  constructor({ dialog, getState, onIntent, showBeat, showPuzzle }) {
+    Object.assign(this, { dialog, getState, onIntent, showBeat, showPuzzle });
   }
 
   notebook() {
@@ -29,7 +29,7 @@ export class ArchiveView {
       section.append(list); content.append(section);
     }
     if (!content.querySelector('.notebook-entry')) content.append(paragraph('Trang sổ còn mới. Bắt đầu bằng câu chuyện ở bảo tàng, rồi tìm những dấu vết trong hầm.', 'empty-note'));
-    content.append(actions(button('Lời đã đọc', () => this.backlog()), button('Tư liệu', () => this.sourcePanel()), button(state.chapterId === 'peace' ? 'Cánh cửa hòa bình →' : 'Mở hồ sơ →', () => this.showPuzzle(chapters[state.chapterId].puzzleId || state.chapterId), 'primary-button', { disabled: ['museum', 'ending'].includes(state.chapterId) })));
+    content.append(actions(button('Lời đã đọc', () => this.backlog()), button('Tư liệu', () => this.sourcePanel()), button(state.chapterId === 'peace' ? 'Cánh cửa hòa bình →' : 'Mở hồ sơ →', () => this.showPuzzle(), 'primary-button', { disabled: ['museum', 'ending'].includes(state.chapterId) })));
     this.dialog.show({ title: 'Sổ tay ký ức', kicker: 'TƯ LIỆU CỦA MINH', content });
   }
 
@@ -40,7 +40,7 @@ export class ArchiveView {
     for (const beat of records) {
       const clue = Object.values(clues).find(item => item.beatId === beat.id);
       const completed = state.completedBeatIds.includes(beat.id);
-      content.append(element('section', { className: 'history-entry' }, element('span', { className: 'entry-state' }, completed ? '✓ ĐÃ ĐỌC TRỌN' : '◇ LỜI KỂ DANG DỞ'), element('h3', {}, clue?.title || chapters[beat.chapterId].title), paragraph(chapters[beat.chapterId].kicker, 'entry-note'), button('Mở lại lời kể ↗', () => clue ? this.onIntent({ type: 'read-clue', clueId: clue.id }) : this.showStory(beat.chapterId), 'text-button')));
+      content.append(element('section', { className: 'history-entry' }, element('span', { className: 'entry-state' }, completed ? '✓ ĐÃ ĐỌC TRỌN' : '◇ LỜI KỂ DANG DỞ'), element('h3', {}, clue?.title || chapters[beat.chapterId].title), paragraph(chapters[beat.chapterId].kicker, 'entry-note'), button('Mở lại lời kể ↗', () => clue ? this.onIntent({ type: 'read-clue', clueId: clue.id }) : this.showBeat(beat.id), 'text-button')));
     }
     if (!records.length) content.append(paragraph('Chưa có lời kể trong sổ. Những câu chuyện sẽ ở lại đây khi bạn khám phá và đọc cùng Minh.'));
     content.append(paragraph('Minh và lời tự sự là sáng tác cho trò chơi, không phải lời chứng lịch sử.', 'dialog-note'));

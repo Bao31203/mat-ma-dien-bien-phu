@@ -45,7 +45,7 @@ Bản build nằm trong `dist/`; xem tại **http://127.0.0.1:4173** sau khi bui
 | Thử thách | Việc cần làm |
 | --- | --- |
 | Him Lam | Ghi đủ bốn manh mối, xếp chuẩn bị → pháo binh chiều 13/3/1954 → bộ binh → thắng lợi trận mở màn. |
-| Bản đồ chiến dịch | Ghi ba manh mối, đặt ba thẻ theo chú giải sơ đồ học tập và xếp bốn mốc ngày. |
+| Bàn cờ Đông Dương | Ghi bảy manh mối rồi giải bốn bước nối tiếp, mỗi bước ở một trạm trong phòng: cân 84 tiểu đoàn của Kế hoạch Nava, tách hai bức điện chung một sóng, mở từng ngón nắm đấm thép theo thứ tự nơi tập trung quân 2 → 5, gấp bản đồ tới nơi quyết chiến và mở hòm sắt. Bảng câu đố hiện sẵn các dữ kiện đã ghi cho bước đang làm. |
 | Sở chỉ huy | Ghi ba manh mối, ghép ba mẩu bản tin và chọn ngày sự kiện. |
 | Cánh cửa hòa bình | Có thể đọc thêm, chọn việc làm hoặc viết suy nghĩ; được để trống và bước tiếp, không chấm quan điểm đúng/sai. |
 

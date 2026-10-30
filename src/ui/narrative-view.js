@@ -1,6 +1,12 @@
 import portraitUrl from '../../assets/images/minh-portrait.png';
+import emblemUrl from '../../assets/images/game-emblem.png';
 import { beats, clues, chapters } from '../content/story-data.js';
 import { element, button, paragraph } from './dom-elements.js';
+
+const speakers = {
+  minh: { name: 'MINH', portrait: portraitUrl, alt: 'Minh, nhân vật hư cấu' },
+  system: { name: 'HỆ THỐNG', portrait: emblemUrl, alt: 'Giọng nói của căn phòng ký ức' },
+};
 
 export class NarrativeView {
   constructor({ dialog, onIntent, getState }) {
@@ -17,7 +23,8 @@ export class NarrativeView {
     this.active = { beatId, clueId, lineIndex: 0, lastLine: beat.lines.length === 1 };
     this.wholeScene = false;
     this.frame = element('div', { className: 'vn-layout' });
-    const portrait = element('div', { className: 'vn-portrait' }, element('img', { src: portraitUrl, alt: 'Minh, nhân vật hư cấu', width: 180, height: 235 }));
+    this.portrait = element('img', { src: portraitUrl, alt: speakers.minh.alt, width: 180, height: 235 });
+    const portrait = element('div', { className: 'vn-portrait' }, this.portrait);
     this.copy = element('div', { className: 'vn-copy' });
     this.frame.append(portrait, this.copy);
     this.dialog.show({ title: clueId ? clues[clueId].title : chapters[beat.chapterId].title, kicker: `${chapters[beat.chapterId].kicker} · LỜI MINH`, content: this.frame, variant: 'vn-dialog' });
@@ -29,7 +36,9 @@ export class NarrativeView {
     this.active.lastLine = this.active.lineIndex === beat.lines.length - 1;
     const line = beat.lines[this.active.lineIndex];
     const alreadyCollected = this.active.clueId && this.getState().collectedClueIds.includes(this.active.clueId);
-    const speaker = element('div', { className: 'vn-speaker' }, element('strong', {}, line.speakerId === 'minh' ? 'MINH' : line.speakerId), element('span', {}, `${this.active.lineIndex + 1} / ${beat.lines.length}`));
+    const voice = speakers[line.speakerId] || speakers.minh;
+    this.portrait.src = voice.portrait; this.portrait.alt = voice.alt;
+    const speaker = element('div', { className: 'vn-speaker' }, element('strong', {}, voice.name), element('span', {}, `${this.active.lineIndex + 1} / ${beat.lines.length}`));
     const text = element('div', { className: 'vn-text', id: 'narrative-text' });
     for (const item of this.wholeScene ? beat.lines : [line]) text.append(paragraph(item.text));
     const previous = button('← Trước', () => {
